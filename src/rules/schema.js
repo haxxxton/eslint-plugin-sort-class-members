@@ -1,6 +1,6 @@
 export const sortClassMembersSchema = [
 	{
-		id: 'https://github.com/bryanrsmith/eslint-plugin-sort-class-members/v1',
+		id: 'https://github.com/haxxxton/eslint-plugin-sort-class-members/v1',
 		type: 'object',
 		properties: {
 			order: { $ref: '#/definitions/order' },
@@ -29,7 +29,12 @@ export const sortClassMembersSchema = [
 								name: { type: 'string' },
 								type: { enum: ['method', 'property'] },
 								kind: { enum: ['get', 'set'] },
-								propertyType: { type: 'string' },
+								propertyType: {
+									anyOf: [
+										{ type: 'string' },
+										{ type: 'null' },
+									],
+								},
 								accessorPair: { type: 'boolean' },
 								sort: { enum: ['alphabetical', 'none'] },
 								static: { type: 'boolean' },
